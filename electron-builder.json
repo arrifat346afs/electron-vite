@@ -1,0 +1,38 @@
+{
+    "appId": "com.tagpix-ai.electron",
+    "productName": "Promptifyurl",
+    "files": [
+      "dist-electron/**/*",
+      "dist-react/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "output": "dist",
+      "buildResources": "resources"
+    },
+    "extraResources": [
+      {
+        "from": "dist-electron/preload.cjs",
+        "to": "preload.cjs"
+      },
+      {
+        "from": "src/renderer/src/assets",
+        "to": "assets"
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        }
+      ],
+      "icon": "src/renderer/src/assets/icon.ico"
+    },
+    "mac": {
+      "icon": "build/TagpixAi3.icns"
+    },
+    "linux": {
+      "icon": "build/TagpixAi3.png"
+    }
+}
