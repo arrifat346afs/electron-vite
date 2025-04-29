@@ -174,7 +174,7 @@ const SaideBar = () => {
                         {processing.has(url) && " (Processing...)"}
                       </span>
                     </div>
-                    <div className="w-[80px] flex items-center justify-end gap-2">
+                    <div className="w-[100px] flex items-center justify-end gap-2">
                       <button
                         onClick={(e) => {
                           if (!processing.has(url)) {
