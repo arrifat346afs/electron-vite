@@ -157,24 +157,24 @@ const SaideBar = () => {
             />
             {/* vertical scrolling url list */}
             <ScrollArea className="flex-1 w-full rounded-md border">
-              <div className="w-full">
+              <div className="w-full px-2">
                 {urls.map((url, index) => (
                   <div
                     key={index}
-                    className={`mb-1 p-2 rounded flex items-center justify-between text-xs cursor-pointer ${
+                    className={`mb-1 p-2 rounded flex items-center text-xs cursor-pointer ${
                       selectedUrl === url
                         ? "bg-primary/20 border border-primary text-primary-foreground"
                         : "hover:bg-accent hover:text-accent-foreground"
                     } ${processing.has(url) ? 'opacity-50' : ''}`}
                     onClick={() => handleSelectUrl(url)}
                   >
-                    <div className="flex-grow min-w-0 overflow-hidden">
-                      <span className="block truncate pr-2">
+                    <div className="w-[calc(100%-80px)] overflow-hidden">
+                      <span className="block truncate">
                         {url}
                         {processing.has(url) && " (Processing...)"}
                       </span>
                     </div>
-                    <div className="flex-none flex items-center gap-2 ml-2">
+                    <div className="w-[80px] flex items-center justify-end gap-2">
                       <button
                         onClick={(e) => {
                           if (!processing.has(url)) {
@@ -182,7 +182,7 @@ const SaideBar = () => {
                             handleEdit(index);
                           }
                         }}
-                        className={`p-1 rounded hover:bg-accent ${processing.has(url) ? 'opacity-50' : ''}`}
+                        className={`flex items-center justify-center w-8 h-8 rounded-full hover:bg-accent ${processing.has(url) ? 'opacity-50' : ''}`}
                       >
                         <Edit2Icon className="w-4 h-4 text-gray-500 hover:text-blue-500" />
                       </button>
@@ -193,7 +193,7 @@ const SaideBar = () => {
                             handleDelete(index);
                           }
                         }}
-                        className={`p-1 rounded hover:bg-accent ${processing.has(url) ? 'opacity-50' : ''}`}
+                        className={`flex items-center justify-center w-8 h-8 rounded-full hover:bg-accent ${processing.has(url) ? 'opacity-50' : ''}`}
                       >
                         <Trash2Icon className="w-4 h-4 text-gray-500 hover:text-red-500" />
                       </button>
