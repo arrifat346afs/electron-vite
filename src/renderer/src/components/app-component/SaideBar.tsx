@@ -156,43 +156,47 @@ const SaideBar = () => {
               defaultValue={editIndex !== null ? urls[editIndex] : ""}
             />
             {/* vertical scrolling url list */}
-            <ScrollArea className="flex-1 w-full rounded-md border overflow-x-hidden">
-              <div className="w-full pr-4">
+            <ScrollArea className="flex-1 w-full rounded-md border">
+              <div className="w-full">
                 {urls.map((url, index) => (
                   <div
                     key={index}
-                    className={`mb-1 p-2 rounded flex items-center text-xs cursor-pointer relative ${
+                    className={`mb-1 p-2 rounded flex items-center justify-between text-xs cursor-pointer ${
                       selectedUrl === url
                         ? "bg-primary/20 border border-primary text-primary-foreground"
                         : "hover:bg-accent hover:text-accent-foreground"
                     } ${processing.has(url) ? 'opacity-50' : ''}`}
                     onClick={() => handleSelectUrl(url)}
                   >
-                    <div className="flex-1 min-w-0 mr-2">
-                      <span className="block truncate">
+                    <div className="flex-grow min-w-0 overflow-hidden">
+                      <span className="block truncate pr-2">
                         {url}
                         {processing.has(url) && " (Processing...)"}
                       </span>
                     </div>
-                    <div className="flex-shrink-0 flex space-x-1">
-                      <Edit2Icon
+                    <div className="flex-none flex items-center gap-2 ml-2">
+                      <button
                         onClick={(e) => {
                           if (!processing.has(url)) {
                             e.stopPropagation();
                             handleEdit(index);
                           }
                         }}
-                        className={`w-4 h-4 ${processing.has(url) ? 'opacity-50' : 'cursor-pointer text-gray-500 hover:text-blue-500'}`}
-                      />
-                      <Trash2Icon
+                        className={`p-1 rounded hover:bg-accent ${processing.has(url) ? 'opacity-50' : ''}`}
+                      >
+                        <Edit2Icon className="w-4 h-4 text-gray-500 hover:text-blue-500" />
+                      </button>
+                      <button
                         onClick={(e) => {
                           if (!processing.has(url)) {
                             e.stopPropagation();
                             handleDelete(index);
                           }
                         }}
-                        className={`w-4 h-4 ${processing.has(url) ? 'opacity-50' : 'cursor-pointer text-gray-500 hover:text-red-500'}`}
-                      />
+                        className={`p-1 rounded hover:bg-accent ${processing.has(url) ? 'opacity-50' : ''}`}
+                      >
+                        <Trash2Icon className="w-4 h-4 text-gray-500 hover:text-red-500" />
+                      </button>
                     </div>
                   </div>
                 ))}
