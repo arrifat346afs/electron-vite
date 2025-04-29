@@ -159,11 +159,10 @@ const SaideBar = () => {
                 {urls.map((url, index) => (
                   <div
                     key={index}
-                    className={`mb-1 p-2 w-110 rounded flex items-center text-xs cursor-pointer ${
-                      selectedUrl === url
+                    className={`mb-1 p-2  rounded flex items-center text-xs cursor-pointer ${selectedUrl === url
                         ? "bg-primary/20 border border-primary text-primary-foreground"
                         : "hover:bg-accent hover:text-accent-foreground"
-                    } ${processing.has(url) ? 'opacity-50' : ''}`}
+                      } ${processing.has(url) ? 'opacity-50' : ''}`}
                     onClick={() => handleSelectUrl(url)}
                   >
                     <div className="flex-1 overflow-hidden text-ellipsis whitespace-nowrap">
