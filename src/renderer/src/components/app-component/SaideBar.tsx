@@ -168,7 +168,7 @@ const SaideBar = () => {
                     } ${processing.has(url) ? 'opacity-50' : ''}`}
                     onClick={() => handleSelectUrl(url)}
                   >
-                    <div className="flex-1 overflow-hidden">
+                    <div className="flex-1 overflow-hidden text-ellipsis whitespace-nowrap">
                       <span className="block truncate">
                         {url}
                         {processing.has(url) && " (Processing...)"}
