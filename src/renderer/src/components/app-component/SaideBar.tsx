@@ -157,43 +157,46 @@ const SaideBar = () => {
             />
             {/* vertical scrolling url list */}
             <ScrollArea className="flex-1 w-full rounded-md border overflow-x-hidden">
-                <div className="flex flex-col w-full h-full pb-2">
-                  {urls.map((url, index) => (
-                    <div
-                      key={index}
-                      className={`mb-1 p-2 rounded flex justify-between items-center text-xs cursor-pointer relative ${selectedUrl === url
-                          ? "bg-primary/20 border border-primary text-primary-foreground"
-                          : "hover:bg-accent hover:text-accent-foreground"
-                        } ${processing.has(url) ? 'opacity-50' : ''}`}
-                      onClick={() => handleSelectUrl(url)}
-                    >
-                      <span className="truncate max-w-[80%]">
+              <div className="w-full pr-4">
+                {urls.map((url, index) => (
+                  <div
+                    key={index}
+                    className={`mb-1 p-2 rounded flex items-center text-xs cursor-pointer relative ${
+                      selectedUrl === url
+                        ? "bg-primary/20 border border-primary text-primary-foreground"
+                        : "hover:bg-accent hover:text-accent-foreground"
+                    } ${processing.has(url) ? 'opacity-50' : ''}`}
+                    onClick={() => handleSelectUrl(url)}
+                  >
+                    <div className="flex-1 min-w-0 mr-2">
+                      <span className="block truncate">
                         {url}
                         {processing.has(url) && " (Processing...)"}
                       </span>
-                      <div className="flex space-x-1 z-10">
-                        <Edit2Icon
-                          onClick={(e) => {
-                            if (!processing.has(url)) {
-                              e.stopPropagation();
-                              handleEdit(index);
-                            }
-                          }}
-                          className={`w-4 h-4 ${processing.has(url) ? 'opacity-50' : 'cursor-pointer text-gray-500 hover:text-blue-500'}`}
-                        />
-                        <Trash2Icon
-                          onClick={(e) => {
-                            if (!processing.has(url)) {
-                              e.stopPropagation();
-                              handleDelete(index);
-                            }
-                          }}
-                          className={`w-4 h-4 ${processing.has(url) ? 'opacity-50' : 'cursor-pointer text-gray-500 hover:text-red-500'}`}
-                        />
-                      </div>
                     </div>
-                  ))}
-                </div>
+                    <div className="flex-shrink-0 flex space-x-1">
+                      <Edit2Icon
+                        onClick={(e) => {
+                          if (!processing.has(url)) {
+                            e.stopPropagation();
+                            handleEdit(index);
+                          }
+                        }}
+                        className={`w-4 h-4 ${processing.has(url) ? 'opacity-50' : 'cursor-pointer text-gray-500 hover:text-blue-500'}`}
+                      />
+                      <Trash2Icon
+                        onClick={(e) => {
+                          if (!processing.has(url)) {
+                            e.stopPropagation();
+                            handleDelete(index);
+                          }
+                        }}
+                        className={`w-4 h-4 ${processing.has(url) ? 'opacity-50' : 'cursor-pointer text-gray-500 hover:text-red-500'}`}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
             </ScrollArea>
             <div className="flex w-full justify-center p-4">
               <Button
