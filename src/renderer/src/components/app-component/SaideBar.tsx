@@ -156,7 +156,7 @@ const SaideBar = () => {
               defaultValue={editIndex !== null ? urls[editIndex] : ""}
             />
             {/* vertical scrolling url list */}
-            <ScrollArea className="flex-1 w- rounded-md border">
+            <ScrollArea className="flex-1 w-full rounded-md border">
               <div className="w-full px-2">
                 {urls.map((url, index) => (
                   <div
@@ -168,7 +168,7 @@ const SaideBar = () => {
                     } ${processing.has(url) ? 'opacity-50' : ''}`}
                     onClick={() => handleSelectUrl(url)}
                   >
-                    <div className="w-[calc(100%-100px)] overflow-hidden">
+                    <div className="flex-1 overflow-hidden">
                       <span className="block truncate">
                         {url}
                         {processing.has(url) && " (Processing...)"}
