@@ -157,7 +157,7 @@ const SaideBar = () => {
             />
             {/* vertical scrolling url list */}
             <ScrollArea className="flex-1 w-full rounded-md border">
-              <div className="w-90 px-2">
+              <div className="w-[calc(100%-80px)] px-2">
                 {urls.map((url, index) => (
                   <div
                     key={index}
