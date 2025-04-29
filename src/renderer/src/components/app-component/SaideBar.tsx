@@ -174,7 +174,7 @@ const SaideBar = () => {
                         {processing.has(url) && " (Processing...)"}
                       </span>
                     </div>
-                    <div className="flex-1 overflow-hidden text-ellipsis whitespace-nowrap">
+                    <div className="flex-1 flex-co overflow-hidden text-ellipsis whitespace-nowrap">
                       <button
                         onClick={(e) => {
                           if (!processing.has(url)) {

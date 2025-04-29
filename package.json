@@ -3,7 +3,7 @@
   "description": "AI powered prompt generator from URL",
   "author": "eUrlAi",
   "private": true,
-  "version": "0.0.20",
+  "version": "0.0.21",
   "type": "module",
   "main": "dist-electron/electron/main.js",
   "scripts": {
