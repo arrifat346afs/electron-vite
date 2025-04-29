@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Input } from "../ui/input";
-import { Edit2Icon, Trash2Icon, LinkIcon, KeyIcon } from "lucide-react";
+import { Trash2Icon, LinkIcon, KeyIcon } from "lucide-react";
 import ApiKeyInput from "./ApiKeyInput";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
 import { useUrl } from "../../contexts/UrlContext";
@@ -159,7 +159,7 @@ const SaideBar = () => {
                 {urls.map((url, index) => (
                   <div
                     key={index}
-                    className={`mb-1 p-2 w- rounded flex items-center text-xs cursor-pointer ${
+                    className={`mb-1 p-2 w-50 rounded flex items-center text-xs cursor-pointer ${
                       selectedUrl === url
                         ? "bg-primary/20 border border-primary text-primary-foreground"
                         : "hover:bg-accent hover:text-accent-foreground"
