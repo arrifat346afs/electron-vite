@@ -156,7 +156,7 @@ const SaideBar = () => {
               defaultValue={editIndex !== null ? urls[editIndex] : ""}
             />
             {/* vertical scrolling url list */}
-            <ScrollArea className="flex-1 w-[calc(100%-10px)] rounded-md border">
+            <ScrollArea className="flex-1 w- rounded-md border">
               <div className="w-full px-2">
                 {urls.map((url, index) => (
                   <div
