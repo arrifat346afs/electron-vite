@@ -174,18 +174,8 @@ const SaideBar = () => {
                         {processing.has(url) && " (Processing...)"}
                       </span>
                     </div>
-                    <div className="flex-1 flex-co overflow-hidden text-ellipsis whitespace-nowrap">
-                      <button
-                        onClick={(e) => {
-                          if (!processing.has(url)) {
-                            e.stopPropagation();
-                            handleEdit(index);
-                          }
-                        }}
-                        className={`flex items-center justify-center w-8 h-8 rounded-full hover:bg-accent ${processing.has(url) ? 'opacity-50' : ''}`}
-                      >
-                        <Edit2Icon className="w-4 h-4 text-gray-500 hover:text-blue-500" />
-                      </button>
+                    <div className="flex-1 flex-col overflow-hidden text-ellipsis whitespace-nowrap">
+
                       <button
                         onClick={(e) => {
                           if (!processing.has(url)) {
