@@ -114,9 +114,7 @@ const SaideBar = () => {
     sendDataToAI,
   };
 
-  const handleEdit = (index: number) => {
-    setEditIndex(index);
-  };
+
 
   const handleDelete = (index: number) => {
     deleteUrl(index);
@@ -161,7 +159,7 @@ const SaideBar = () => {
                 {urls.map((url, index) => (
                   <div
                     key={index}
-                    className={`mb-1 p-2 w-fi rounded flex items-center text-xs cursor-pointer ${
+                    className={`mb-1 p-2 w- rounded flex items-center text-xs cursor-pointer ${
                       selectedUrl === url
                         ? "bg-primary/20 border border-primary text-primary-foreground"
                         : "hover:bg-accent hover:text-accent-foreground"
